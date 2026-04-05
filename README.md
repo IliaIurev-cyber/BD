@@ -1,9 +1,11 @@
+```markdown
 # Сессионное задание по базам данных
 В папках файлы баз данных по каждому заданию. Базы данных были созданы в pgAdmin4.
 
 ## База данных 1
 
 ### Задание 1:
+```sql
 SELECT 
     v.maker,
     m.model
@@ -18,8 +20,9 @@ WHERE
     AND m.price < 20000
 ORDER BY 
     m.horsepower DESC;
-
+```markdown
 ### Задание 2:
+```sql
 SELECT 
     maker,
     model,
@@ -81,12 +84,11 @@ FROM (
 ORDER BY 
     horsepower IS NULL,  -- FALSE (0) сначала, TRUE (1) потом
     horsepower DESC;
-
+```markdown
 ## База данных 2
 
 ### Задание 1:
-2 бд 1 задание 
-
+```sql
 WITH CarStats AS (
     -- Шаг 1: Рассчитываем среднюю позицию и количество гонок для каждого автомобиля
     SELECT 
@@ -124,8 +126,9 @@ WHERE
     rank = 1
 ORDER BY 
     average_position;
-
+```markdown
 ### Задание 2:
+```sql
 WITH CarStats AS (
     -- Шаг 1: Рассчитываем среднюю позицию и количество гонок для каждого автомобиля
     SELECT 
@@ -167,8 +170,9 @@ FROM
     RankedCars
 WHERE 
     rank = 1;
-
+```markdown
 ### Задание 3:
+```sql
 WITH CarStats AS (
     -- Средняя позиция каждого автомобиля
     SELECT 
@@ -234,8 +238,9 @@ INNER JOIN
 ORDER BY 
     cs.car_class,
     cs.car_name;
-
+```markdown
 ### Задание 4:
+```sql
 WITH ClassCarCount AS (
     -- Шаг 1: Количество автомобилей в каждом классе (без оконной функции)
     SELECT 
@@ -294,8 +299,9 @@ WHERE
 ORDER BY 
     cs.car_class,
     cs.avg_car_position;
-
+```markdown
 ### Задание 5:
+```sql
 WITH CarStats AS (
     -- Шаг 1: Средняя позиция каждого автомобиля
     SELECT 
@@ -355,10 +361,11 @@ ORDER BY
     bc.low_position_count DESC,
     cs.car_class,
     cs.car_name;
-
+```markdown
 ## База данных 3
 
 ### Задание 1:
+```sql
 WITH CustomerBookings AS (
     -- Шаг 1: Базовая информация о бронированиях с длительностью
     SELECT 
@@ -409,8 +416,9 @@ WHERE
     AND distinct_hotels > 1  -- бронирования в разных отелях
 ORDER BY 
     total_bookings DESC;
-
+```markdown
 ### Задание 2:
+```sql
 SELECT 
     c.ID_customer,
     c.name,
@@ -433,8 +441,9 @@ HAVING
     AND SUM(r.price * (b.check_out_date - b.check_in_date)) > 500
 ORDER BY 
     total_spent ASC;
-
+```markdown
 ### Задание 3:
+```sql
 WITH HotelCategory AS (
     -- Шаг 1: Категоризация отелей на основе средней стоимости номера
     SELECT 
@@ -504,10 +513,11 @@ ORDER BY
         WHEN 'Средний' THEN 2
         WHEN 'Дорогой' THEN 3
     END;
-
+```markdown
 ## База данных 4
 
 ### Задание 1:
+```sql
 WITH RECURSIVE EmployeeHierarchy AS (
     -- Базовый уровень: сам Иван Иванов
     SELECT 
@@ -580,8 +590,9 @@ LEFT JOIN
     EmployeeTasks et ON eh.EmployeeID = et.EmployeeID
 ORDER BY 
     eh.Name;
-
+```markdown
 ### Задание 2:
+```sql
 WITH RECURSIVE EmployeeHierarchy AS (
     -- Базовый уровень: сам Иван Иванов
     SELECT 
@@ -669,8 +680,9 @@ LEFT JOIN
     SubordinateCount sc ON eh.EmployeeID = sc.ManagerID
 ORDER BY 
     eh.Name;
-
+```markdown
 ### Задание 3:
+```sql
 WITH RECURSIVE SubordinateHierarchy AS (
     -- Базовый уровень: все сотрудники (как потенциальные менеджеры)
     SELECT 
